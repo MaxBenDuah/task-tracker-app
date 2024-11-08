@@ -5,6 +5,7 @@ const initialState = {
   description: "",
   tasks: JSON.parse(localStorage.getItem("tasks")) || [],
   searchTerm: "",
+  filterBy: "",
 };
 
 const taskSlice = createSlice({
@@ -24,7 +25,7 @@ const taskSlice = createSlice({
             id: crypto.randomUUID(),
             title,
             description,
-            status: "Pending",
+            completed: false,
           },
         };
       },
@@ -48,9 +49,12 @@ const taskSlice = createSlice({
     updateTaskStatus(state, action) {
       state.tasks = state.tasks.map((task) =>
         task.id === action.payload.id
-          ? { ...task, status: action.payload.status }
+          ? { ...task, completed: action.payload.completed }
           : task
       );
+    },
+    filterByStatus(state, action) {
+      state.filterBy = action.payload;
     },
   },
 });
@@ -63,6 +67,7 @@ export const {
   updateTask,
   changeSearchTerm,
   updateTaskStatus,
+  filterByStatus,
 } = taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
