@@ -4,6 +4,7 @@ const initialState = {
   title: "",
   description: "",
   tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+  searchTerm: "",
 };
 
 const taskSlice = createSlice({
@@ -40,6 +41,9 @@ const taskSlice = createSlice({
         task.id === action.payload.id ? action.payload : task
       );
     },
+    changeSearchTerm(state, action) {
+      state.searchTerm = action.payload;
+    },
   },
 });
 
@@ -49,6 +53,7 @@ export const {
   addTask,
   deleteTask,
   updateTask,
+  changeSearchTerm,
 } = taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
