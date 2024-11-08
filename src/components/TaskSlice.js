@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   title: "",
   description: "",
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
 };
 
 const taskSlice = createSlice({
@@ -35,10 +35,20 @@ const taskSlice = createSlice({
     deleteTask(state, action) {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
+    updateTask(state, action) {
+      state.tasks = state.tasks.map((task) =>
+        task.id === action.payload.id ? action.payload : task
+      );
+    },
   },
 });
 
-export const { changeTitle, changeDescription, addTask, deleteTask } =
-  taskSlice.actions;
+export const {
+  changeTitle,
+  changeDescription,
+  addTask,
+  deleteTask,
+  updateTask,
+} = taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
