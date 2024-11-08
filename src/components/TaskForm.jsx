@@ -1,12 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeDescription, changeTitle } from "./TaskSlice";
+import { addTask, changeDescription, changeTitle } from "./TaskSlice";
 
 function TaskForm() {
   const { title, description } = useSelector((state) => state.task);
   const dispatch = useDispatch();
 
+  function onSubmit(e) {
+    e.preventDefault();
+
+    if (!title || !description) return;
+
+    dispatch(addTask(title, description));
+  }
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <input
         type="text"
         placeholder="Enter title"

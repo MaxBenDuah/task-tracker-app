@@ -28,11 +28,17 @@ const taskSlice = createSlice({
       },
       reducer(state, action) {
         state.tasks = [...state.tasks, action.payload];
+        state.title = "";
+        state.description = "";
       },
+    },
+    deleteTask(state, action) {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
   },
 });
 
-export const { changeTitle, changeDescription, addTask } = taskSlice.actions;
+export const { changeTitle, changeDescription, addTask, deleteTask } =
+  taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
