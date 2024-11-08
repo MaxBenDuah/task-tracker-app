@@ -1,3 +1,4 @@
+import FilterTask from "./components/FilterTask";
 import SearchTerm from "./components/SearchTerm";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
@@ -7,6 +8,7 @@ function App() {
     <div>
       <TaskForm />
       <SearchTerm />
+      <FilterTask />
       <TaskList />
     </div>
   );

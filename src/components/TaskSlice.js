@@ -24,6 +24,7 @@ const taskSlice = createSlice({
             id: crypto.randomUUID(),
             title,
             description,
+            status: "Pending",
           },
         };
       },
@@ -44,6 +45,13 @@ const taskSlice = createSlice({
     changeSearchTerm(state, action) {
       state.searchTerm = action.payload;
     },
+    updateTaskStatus(state, action) {
+      state.tasks = state.tasks.map((task) =>
+        task.id === action.payload.id
+          ? { ...task, status: action.payload.status }
+          : task
+      );
+    },
   },
 });
 
@@ -54,6 +62,7 @@ export const {
   deleteTask,
   updateTask,
   changeSearchTerm,
+  updateTaskStatus,
 } = taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
