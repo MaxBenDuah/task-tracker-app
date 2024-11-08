@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   title: "",
   description: "",
+  tasks: [],
 };
 
 const taskSlice = createSlice({
@@ -15,9 +16,23 @@ const taskSlice = createSlice({
     changeDescription(state, action) {
       state.description = action.payload;
     },
+    addTask: {
+      prepare(title, description) {
+        return {
+          payload: {
+            id: crypto.randomUUID(),
+            title,
+            description,
+          },
+        };
+      },
+      reducer(state, action) {
+        state.tasks = [...state.tasks, action.payload];
+      },
+    },
   },
 });
 
-export const { changeTitle, changeDescription } = taskSlice.actions;
+export const { changeTitle, changeDescription, addTask } = taskSlice.actions;
 
 export const taskReducer = taskSlice.reducer;
