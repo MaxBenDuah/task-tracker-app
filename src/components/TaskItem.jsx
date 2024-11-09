@@ -39,9 +39,9 @@ function TaskItem({ task }) {
         </form>
       ) : (
         <li>
-          <h2>{task.title}</h2>
+          <h2 className="text-3xl text-purple-500">{task.title}</h2>
           <p>{task.description}</p>
-          <p>Status: {task.completed}</p>
+          <p className="font-semibold">Status: {task.completed}</p>
           <input
             type="checkbox"
             value={completed}
