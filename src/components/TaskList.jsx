@@ -4,13 +4,14 @@ import TaskItem from "./TaskItem";
 function TaskList() {
   const { tasks, searchTerm, filterBy } = useSelector((state) => state.task);
 
-  const allTasks = filterBy
-    ? tasks.filter((task) => task.status === filterBy)
-    : tasks.filter(
-        (task) =>
-          task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          task.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+  const allTasks =
+    filterBy !== "All"
+      ? tasks.filter((task) => task.completed === filterBy)
+      : tasks.filter(
+          (task) =>
+            task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            task.description.toLowerCase().includes(searchTerm.toLowerCase())
+        );
 
   return (
     <ul>

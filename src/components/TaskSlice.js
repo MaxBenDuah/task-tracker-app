@@ -5,7 +5,7 @@ const initialState = {
   description: "",
   tasks: JSON.parse(localStorage.getItem("tasks")) || [],
   searchTerm: "",
-  filterBy: "",
+  filterBy: "All",
 };
 
 const taskSlice = createSlice({
@@ -25,7 +25,7 @@ const taskSlice = createSlice({
             id: crypto.randomUUID(),
             title,
             description,
-            completed: false,
+            completed: "Pending",
           },
         };
       },

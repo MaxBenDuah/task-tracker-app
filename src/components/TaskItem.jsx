@@ -41,12 +41,12 @@ function TaskItem({ task }) {
         <li>
           <h2>{task.title}</h2>
           <p>{task.description}</p>
-          <p>Status: {task.completed ? "Completed" : "Pending"}</p>
+          <p>Status: {task.completed}</p>
           <input
             type="checkbox"
             value={completed}
             onChange={(e) => {
-              const newStatus = !completed;
+              const newStatus = e.target.checked ? "Completed" : "Pending";
               updateCompleted(newStatus);
               dispatch(updateTaskStatus({ id: task.id, completed: newStatus }));
             }}
