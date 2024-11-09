@@ -12,7 +12,7 @@ function TaskItem({ task }) {
   function onSubmit(e) {
     e.preventDefault();
 
-    dispatch(updateTask({ id: task.id, title, description }));
+    dispatch(updateTask({ id: task.id, title, description, completed }));
 
     setShowUpdate(false);
   }
