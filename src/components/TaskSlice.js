@@ -26,6 +26,7 @@ const taskSlice = createSlice({
             title,
             description,
             completed: "Pending",
+            createdOn: new Date().toISOString(),
           },
         };
       },

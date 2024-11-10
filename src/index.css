@@ -2,14 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Geist Sans";
-  src: url("assets/fonts/Geist-v1.4.01/webfonts/Geist[wght].woff2")
-    format("woff2");
-  font-style: normal;
-  font-weight: 100 900;
-}
-
-body {
-  background: teal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");

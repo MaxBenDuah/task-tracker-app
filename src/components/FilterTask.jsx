@@ -11,10 +11,14 @@ function FilterTask() {
       onChange={(e) => {
         dispactch(filterByStatus(e.target.value));
       }}
+      className="select select-bordered w-full max-w-xs"
     >
-      <option>All</option>
-      <option>Pending</option>
-      <option>Completed</option>
+      <option value="" disabled>
+        Filter By
+      </option>
+      <option value="All">All</option>
+      <option value="Pending">Pending</option>
+      <option value="Completed">Completed</option>
     </select>
   );
 }

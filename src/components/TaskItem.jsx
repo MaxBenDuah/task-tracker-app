@@ -1,49 +1,20 @@
 import { useDispatch } from "react-redux";
-import { deleteTask, updateTask, updateTaskStatus } from "./TaskSlice";
+import { deleteTask, updateTaskStatus } from "./TaskSlice";
 import { useState } from "react";
+import { PencilSimple, Trash } from "@phosphor-icons/react";
+import { formatDate } from "../utils/helpers";
 
-function TaskItem({ task }) {
-  const [title, updateTitle] = useState(task.title);
-  const [description, updateDescription] = useState(task.description);
+function TaskItem({ task, onEdit }) {
   const [completed, updateCompleted] = useState(task.completed);
-  const [showUpdate, setShowUpdate] = useState(false);
   const dispatch = useDispatch();
-
-  function onSubmit(e) {
-    e.preventDefault();
-
-    dispatch(updateTask({ id: task.id, title, description, completed }));
-
-    setShowUpdate(false);
-  }
 
   return (
     <>
-      {showUpdate ? (
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => updateTitle(e.target.value)}
-          />
-          <br />
-          <textarea
-            rows={10}
-            cols={20}
-            value={description}
-            onChange={(e) => updateDescription(e.target.value)}
-          ></textarea>
-          <br />
-          <button type="submit">Update</button>
-          <button onClick={() => setShowUpdate(false)}>Cancel</button>
-        </form>
-      ) : (
-        <li>
-          <h2 className="text-3xl text-purple-500">{task.title}</h2>
-          <p>{task.description}</p>
-          <p className="font-semibold">Status: {task.completed}</p>
+      <tr>
+        <td>
           <input
             type="checkbox"
+            className="checkbox"
             value={completed}
             onChange={(e) => {
               const newStatus = e.target.checked ? "Completed" : "Pending";
@@ -51,10 +22,39 @@ function TaskItem({ task }) {
               dispatch(updateTaskStatus({ id: task.id, completed: newStatus }));
             }}
           />
-          <button onClick={() => setShowUpdate(true)}>Update</button>
-          <button onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
-        </li>
-      )}
+        </td>
+        <td>{formatDate(new Date(task.createdOn))}</td>
+        <td>
+          <h2 className="text-base font-bold">{task.title}</h2>
+        </td>
+        <td>
+          <p>{task.description}</p>
+        </td>
+        <td>
+          {task.completed === "Pending" ? (
+            <div className="badge badge-secondary">Pending</div>
+          ) : (
+            <div className="badge badge-accent">Completed</div>
+          )}
+        </td>
+
+        <td>
+          <div
+            onClick={onEdit}
+            className="w-12 h-12 border-[1px] border-[#06b6d4] flex justify-center items-center rounded-full cursor-pointer"
+          >
+            <PencilSimple size={18} color="#06b6d4" />
+          </div>
+        </td>
+        <td>
+          <div
+            onClick={() => dispatch(deleteTask(task.id))}
+            className="w-12 h-12 border-[1px] border-[#ec4899] flex justify-center items-center rounded-full cursor-pointer"
+          >
+            <Trash size={18} color="#ec4899" />
+          </div>
+        </td>
+      </tr>
     </>
   );
 }
