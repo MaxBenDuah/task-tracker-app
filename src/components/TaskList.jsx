@@ -53,7 +53,7 @@ function TaskList() {
 
   if (!allTasks.length)
     return (
-      <p className="text-xl font-medium">
+      <p className="text-xl font-medium text-center md:text-start">
         No tasks yet! Add your first task to get started.
       </p>
     );
