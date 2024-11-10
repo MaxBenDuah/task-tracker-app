@@ -11,7 +11,7 @@ function SearchTerm() {
       <label className="input input-bordered flex items-center gap-2">
         <input
           type="text"
-          className="grow md:w-96"
+          className="grow md:w-96 w-full max-w-xs"
           placeholder="Search tasks by title, description, or status"
           value={searchTerm}
           onChange={(e) => dispactch(changeSearchTerm(e.target.value))}
