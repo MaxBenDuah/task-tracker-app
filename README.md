@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Task Tracker Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a task management web application built with React, Redux, and Tailwind CSS. It allows users to manage their tasks by adding, editing, filtering, searching and marking them as completed.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- **React** – A JavaScript library for building user interfaces.
+- **Redux** – A state management library for React applications.
+- **Redux Toolkit** – To simplify Redux usage and boilerplate code.
+- **React-Redux** – To integrate Redux with React.
+- **Tailwind CSS** – A utility-first CSS framework for styling the application.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Add Tasks: Easily add new tasks with a title, description, and status (Pending, Completed). Tasks are saved with the current date and time, allowing you to track when they were created.
+- Edit Tasks: Quickly update task details, including the title, description, and status. Whether you need to correct a typo or mark a task as completed, the app allows for smooth task updates.
+- Delete Tasks: Remove any completed or unnecessary tasks with a simple click. Deleting tasks helps you keep your list organized and relevant.
+- Search Functionality: Effortlessly search through tasks by title, description, or status. The search bar provides real-time results, allowing you to find specific tasks quickly.
+- Filter Tasks by Status: Use the filter dropdown to view tasks based on their current status.
+- Interactive Modal Dialogs: Task editing and creation are done within a sleek modal dialog window, providing a focused and distraction-free experience for managing tasks.
+- Persistent Data: Task data is stored in the local state, ensuring your tasks are retained as long as the app is open. (Can be extended to local storage or a database for long-term persistence).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Demo
 
-### `npm test`
+https://task-tracker-mbd.netlify.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+![App Screenshot](https://github.com/MaxBenDuah/miscellaneous-resources/blob/main/tasktracker-screenshot-1.png?raw=true)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![App Screenshot](https://github.com/MaxBenDuah/miscellaneous-resources/blob/main/tasktracker-screenshot-2.png?raw=true)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![App Screenshot](https://github.com/MaxBenDuah/miscellaneous-resources/blob/main/tasktracker-screenshot-3.png?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run Locally
 
-### `npm run eject`
+Clone the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  git clone https://github.com/MaxBenDuah/task-tracker-app.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Go to the project directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  cd task-tracker-app
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+  npm start
+```
